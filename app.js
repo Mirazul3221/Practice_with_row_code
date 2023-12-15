@@ -12,17 +12,11 @@
 
 // main(callBack)
 
-
-
-
-// const message = function() {  
+// const message = function() {
 //     console.log("This message is printed first");
 // }
 
-
-
 // setTimeout(callBack, 3000);
-
 
 // ==========================================
 // =============Callback medium=============
@@ -32,7 +26,7 @@
 // let pp = 80;
 // let getMark = "80%";
 // function getExam (callBack){
-//    console.log( "Prepared for this exam. To get certificate you must get at list 80% marks") 
+//    console.log( "Prepared for this exam. To get certificate you must get at list 80% marks")
 //    if (getMark) {
 //     console.log(`you deserve certificate because you achived ${getMark} and wait for 3 second`)
 //     setTimeout(callBack, 3000)
@@ -45,7 +39,6 @@
 // function getCertificate(){
 //     console.log('Congratulation!')
 // }
-
 
 // function isStudent(){
 //    if(student){
@@ -61,7 +54,6 @@
 
 // isStudent()
 
-
 // =====================================================================
 let student = true;
 
@@ -69,63 +61,88 @@ let pp = 80;
 
 let marks = 70;
 
-function initialStep(callBack){
-   setTimeout(() => {
-    if (student) {
-        callBack()
-    } else {
-        console.log("Admit first to be a student")
-    }
-   }, 1000); 
-
-   
-}
-
-
-function progress (callBack){
-    console.log("Attend to the class regularly and Prepar for the exam")
-   
-    setTimeout(() => {
-        if (pp >= 80) {
-            callBack()
-        } else {
-            console.log("Your addendance is too low to addend the exam")
-        }
-    }, 3000);
-
-}
-
-function exam(callBack){
-  console.log("Your exam is knocking at the door. So you shuld study hard")
+function initialStep(callBack) {
   setTimeout(() => {
-
-    if (marks >= 80) {
-        console.log("waiting for the certificate....")
-        callBack()
+    if (student) {
+      callBack();
     } else {
-        console.log('you deserve no certificate')
+      console.log('Admit first to be a student');
     }
-  }, 2000); 
+  }, 1000);
 }
 
-function getCertificate (){
-    setTimeout(() => {
-        console.log("Congrate! you got the certificate")
-    }, 3000);
+function progress(callBack) {
+  console.log('Attend to the class regularly and Prepar for the exam');
+
+  setTimeout(() => {
+    if (pp >= 80) {
+      callBack();
+    } else {
+      console.log('Your addendance is too low to addend the exam');
+    }
+  }, 3000);
 }
 
+function exam(callBack) {
+  console.log('Your exam is knocking at the door. So you shuld study hard');
+  setTimeout(() => {
+    if (marks >= 80) {
+      console.log('waiting for the certificate....');
+      callBack();
+    } else {
+      console.log('you deserve no certificate');
+    }
+  }, 2000);
+}
 
-initialStep(()=>{
-    progress(()=>{
-        exam(getCertificate) 
-    })
+function getCertificate() {
+  setTimeout(() => {
+    console.log('Congrate! you got the certificate');
+  }, 3000);
+}
+
+initialStep(() => {
+  progress(() => {
+    exam(getCertificate);
+  });
 });
+// ======================================
 
+function handleSubmit() {
+  let input = document.getElementById('demo').value;
 
+  let index = [];
+  for (let i = 0; i < input; i++) {
+    index.push(i + 1);
+  }
 
+  let total = 0;
+  index.forEach(i => (total += i));
+  alert(total);
 
+  let prime = [];
+  prime.push(1);
 
+  startAgain: for (let outer = 2; outer <= input; outer++) {
+    //7
+    for (let inner = 2; inner < outer; inner++) {
+      if (outer % inner == 0) {
+        continue startAgain;
+      }
+    }
+    prime.push(outer);
+  }
+
+  //   const total = index => {
+  //     let num = 0;
+  //       for (const singleNum of index) {
+
+  //     }
+  //   };
+
+  console.log(prime);
+
+  console.log(prime.length);
+}
 
 // console.log("This message is printed after the first message is executed")
-
-
