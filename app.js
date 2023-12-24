@@ -146,3 +146,62 @@ function handleSubmit() {
 }
 
 // console.log("This message is printed after the first message is executed")
+
+
+
+
+
+
+
+
+
+// =============================================================
+// =============================================================
+// =============================================================
+// =============================JS OOP==========================
+// =============================================================
+// =============================================================
+
+let obj = {
+  mane : "Rahim",
+  email:"rohim@gmail.com",
+  age:17,
+  weight: "50 Kg",
+  main:this
+}
+
+
+console.log(obj.email)
+
+// console.log(new obj)
+
+const StudentFrame = function(name){
+ this.name = name;
+}
+
+const karim =  new StudentFrame('karim')
+const rahim =  new StudentFrame('rahim')
+const sofiq =  new StudentFrame('sofiq')
+console.log(karim,rahim,sofiq)
+StudentFrame.prototype.aboutI = function (){
+  console.log(`My name is ${this.name}`)
+ }
+
+ console.log(StudentFrame.prototype.__proto__)
+ console.log(karim.__proto__.__proto__.__proto__)
+
+// console.log(sofiq.aboutI())
+
+// const arr = [1,2,3,4,5]
+// Array.prototype.filter = function(){
+//   let arr = [];
+//   // for (let i = 0; i < this.length; i++) {
+//   //  console.log(this[i])
+    
+//   // }
+// }
+
+// console.log(arr.filter(ele=> ele))
+
+
+
